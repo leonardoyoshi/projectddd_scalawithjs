@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projeto com DDD - Scala + Interface HTML/JS</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+<center>	  
+	
+	<div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+	  <fieldset class="field">
+      	<h4> <font size="5">Usuário</h4></font>
+
+        <form id="formdata">
+		<br>
+			<div class="row">
+				<div class="col-xs-3">
+					<div class="input-group">
+						<span class="input-group-addon">Nome:</span>
+							<input type="text" id="nomeU_input" class="form-control">
+					</div>
+				</div>
+			<br>
+				<div class="col-xs-1">
+					<div class="input-group">
+						<span class="input-group-addon">CPF: </span>
+							<input type="text" id="cpfcnpj_input" class="form-control">
+					</div>
+				</div>
+			<br>
+            <div class="col-xs-1">
+                <div class="input-group">
+                  <span class="input-group-addon">Idade: </span>
+                  <input type="text" id="idade_input" class="form-control">
+                </div>
+            </div>
+			<br>
+            <div class="col-xs-3">
+                <div class="input-group">
+                  <span class="input-group-addon">Rua:</span>
+                  <input type="text" id="rua_input" class="form-control">
+                </div>
+            </div>
+			<br>
+            <div class="col-xs-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Nº.:</span>
+                  <input type="text" id="numero_input" class="form-control">
+                </div>              
+            </div>
+			<br>
+          <div class="row">
+            <div class="col-xs-7">
+                <div class="input-group">
+                  <span class="input-group-addon">Cidade:</span>
+                  <input type="text" id="cidade_input" class="form-control">
+                </div>
+            </div>
+          </div>
+		  <br>
+		  <br>
+          <button type="submit" id="postu_submit" class="btn btn-primary">POST</button>
+		  <br>
+		  <br>
+		  <button type="submit" id="getu_submit" class="btn btn-primary">GET</button>
+        </form>
+        <br>
+		</fieldset>	
+		<fieldset class="field">
+		</table>
+        <h4><font size="5">Produto</h4></font>
+        <form>
+		<br>
+          <div class="row">
+            <div class="col-xs-10">
+                <div class="input-group">
+                  <span class="input-group-addon">Nome:</span>
+                  <input type="text" id="nomeP_input" class="form-control">
+                </div>
+            </div>
+			<br>
+			 <div class="row">
+            <div class="col-xs-10">
+                <div class="input-group">
+                  <span class="input-group-addon">Preço: </span>
+                  <input type="text" id="preco_input" class="form-control">
+                </div>
+            </div>
+			<br>
+			 <div class="row">
+            <div class="col-xs-10">
+                <div class="input-group">
+                  <span class="input-group-addon">Categoria: </span>
+                  <input type="text" id="categoria_input" class="form-control">
+                </div>
+            </div>
+			<br><br>
+
+            <div class="col-xs-1">
+              <button type="submit" id="postp_submit" class="btn btn-primary">POST</button>
+          </div>
+		  <br>
+		  <div class="col-xs-1">
+              <button type="submit" id="getp_submit" class="btn btn-primary">GET</button>
+          </div>
+		  </fieldset>
+         </form>
+      </div>
+    </div>
+  </div>
+  </center>
+  
+  
+  <script src="postuser.js"></script>
+  <script src="postproduto.js"></script>
+	  
+  <script src="getproduct.js"></script>
+  <script src="getuser.js"></script>
+</body>
+</html>
