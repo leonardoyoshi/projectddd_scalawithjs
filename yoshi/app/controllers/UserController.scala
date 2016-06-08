@@ -50,7 +50,7 @@ class UserController extends Controller {
       NotFound.withHeaders("Access-Control-Allow-Origin"->"*")
     }
   }
-
+//Building a delete user
     def deleteUser(id: Long) = Action.async { implicit request =>
     UserService.deleteUser(id) map { res =>  Redirect(routes.UserController.index())
     }
