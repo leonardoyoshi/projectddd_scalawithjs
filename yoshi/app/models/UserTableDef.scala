@@ -8,7 +8,6 @@ import scala.concurrent.Future
 import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
 import scala.concurrent.ExecutionContext.Implicits.global
-
 import scala.concurrent.Future
 
 class UserTableDef(tag: Tag) extends Table[User](tag, "UserTableDef") {
