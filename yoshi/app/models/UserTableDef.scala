@@ -18,6 +18,8 @@ class UserTableDef(tag: Tag) extends Table[User](tag, "UserTableDef") {
   def age = column[Int]("age")
   def endereco = column[String]("adress")
 
+  //def * =
+    //(name, cpfcnpj, age, endereco) <>((User.apply _).tupled, User.unapply)
   override def * =
     (name, cpfcnpj, age, endereco) <>((User.apply _).tupled, User.unapply)
 }
@@ -43,5 +45,4 @@ object Users {
   def listAll: Future[Seq[User]] = {
     dbConfig.db.run(users.result)
   }
-
 }
