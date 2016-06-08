@@ -1,10 +1,18 @@
-package models
+package models;
 
 import models.valueobjects.Endereco
 import play.api.libs.json.{Json, Writes, JsPath, Reads}
 import play.api.libs.functional.syntax._
+import play.api.Play
+import play.api.data.Form
+import play.api.data.Forms._
+import play.api.db.slick.DatabaseConfigProvider
+import scala.concurrent.Future
+import slick.driver.JdbcProfile
+import slick.driver.MySQLDriver.api._
+import scala.concurrent.ExecutionContext.Implicits.global
 
-class User(initialId: Option[Long], initialName: String, initialCpfcnpj: String, initialAge: Int, initialAdress: Endereco){
+case class User(initialId: Option[Long], initialName: String, initialCpfcnpj: String, initialAge: Int, initialAdress: Endereco){
 
   private val _id = initialId
   def getId = _id
@@ -32,7 +40,7 @@ object User {
       (JsPath \ "name").read[String] and
       (JsPath \ "cpfcnpj").read[String] and
       (JsPath \ "age").read[Int] and
-        (JsPath \ "endereco").read[Endereco]
+      (JsPath \ "endereco").read[Endereco]
     )(User.apply _)
 
   implicit val jsonWrites = new Writes[User] {
@@ -45,7 +53,6 @@ object User {
       "endereco" -> user.getAdress
     )
   }
-
   def apply(initialId: Option[Long], initialName: String, initialCpfcnpj: String, initialAge: Int, initialAdress: Endereco):
   User = new User(initialId, initialName, initialCpfcnpj, initialAge, initialAdress)
-}
+

@@ -7,9 +7,9 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 #Trabalho - API - Tópicos Especiais:
 
-GET     /product/:id              controllers.ProductController.getProduct(id: Long)
-GET     /product               controllers.ProductController.listProduct
+GET     /product/:id          controllers.ProductController.getProduct(id: Long)
 POST    /product              controllers.ProductController.addProduct
 
-GET     /user/:id              controllers.UserController.getUser(id: Long)
-POST    /user              controllers.UserController.addUser
+GET     /user/:id             controllers.UserController.getUser(id: Long)
+POST    /user                 controllers.UserController.addUser
+DELETE  /delete/:id           controllers.UserController.deleteUser

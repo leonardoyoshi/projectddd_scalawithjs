@@ -1,20 +1,135 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+<form id="user-data-form" role="form" action='@routes.UserController.addUser()' method="post" class="form-horizontal" align="center" autocomplete="off">
 
-@*
- * Call the the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+ <fieldset class="user-fieldset">
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Scala")
+  <div class="user-form">
+   <label class="form-title" style="color: #F8741B; font-size: 22px;font-weight: bold; text-decoration:none">title</label>
+  </div>
+  <br/>
+  <table align="center" cellspacing="20">
+   <tr>
+    <td align="left">
+     <div class="user-form" id="firstName_field_label">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <strong>name</strong> :
+       </div>
+      </div>
+     </div>
+    </td>
+    <td align="center">
+     <div class="user-form" id="name_field_value">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input type="text" id="name" name="name" value="" placeholder="Name" class="form-control input-lg" required>
+       </div>
+      </div>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <div class="user-form" id="cpfcnpnj_field_label">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <strong>cpfcnpj</strong> :
+       </div>
+      </div>
+     </div>
+    </td>
+    <td align="center">
+     <div class="user-form" id="cpfcnpj_field_value">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input type="text" id="cpfcnpj" name="cpfcnpj" value="" placeholder="cpfcnpj" class="form-control input-lg" required>
+       </div>
+      </div>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <div class="user-form" id="mobile_field_label">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <strong>age</strong> :
+       </div>
+      </div>
+     </div>
+    </td>
+    <td align="center">
+     <div class="user-form" id="age_field_value">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input type="number" id="age" name="age" placeholder="Age" class="form-control input-lg" required>
+       </div>
+      </div>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <div class="user-form" id="email_field_label">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <strong>Address</strong> :
+       </div>
+      </div>
+     </div>
+    </td>
+    <td align="center">
+     <div class="user-form" id="address_field_value">
+      <div class="controls col-xs-offset-3 col-xs-9">
+       <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control input-lg" required>
+       </div>
+      </div>
+     </div>
+    </td>
+   </tr>
+  </table>
+  <br/>
+  <div class="form-actions controls ynt-btn-xlarge">
+   <button type="submit" class="btn btn-primary ynt-btn-orange">Adicionar</button>
+  </div>
+  <br>
+  <br>
+  <div class="form-actions controls ynt-btn-xlarge">
+   <button type="submit" class="btn btn-primary ynt-btn-orange">Buscar</button>
+  </div>
 
-}
+ </fieldset>
+</form>
+
+<div class="user-display" >
+ <fieldset>
+  <legend align="center"><h3>Registered Users</h3></legend>
+  <table cellspacing="20">
+   <tr>
+    <th>userid</th>
+    <th>name</th>
+    <th>cpfcnpj</th>
+    <th>age</th>
+    <th>address</th>
+   </tr>
+   <tr>
+    <td>@user.id</td>
+    <td>@user.name</td>
+    <td>@user.cpfcnpj</td>
+    <td>@user.age</td>
+    <td>@user.address</td>
+    <td><a href="@routes.UserController.deleteUser(user.id)">
+    <div class="form-actions controls ynt-btn-xlarge">
+   <button type="submit" class="btn btn-primary ynt-btn-orange">Deletar</button>
+   </tr></td>
+  </table>
+ </fieldset>
+</div>

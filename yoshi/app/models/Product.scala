@@ -5,6 +5,8 @@ import play.api.libs.functional.syntax._
 
 case class Product(id: Option[Long], name: String, price: Int, category: String)
 
+//case class ProductForm(name: String, price: Int, category: String)
+
 object Product{
 
   implicit val jsonReads: Reads[Product] = (

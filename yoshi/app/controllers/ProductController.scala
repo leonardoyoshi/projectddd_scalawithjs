@@ -6,7 +6,6 @@ import play.api.mvc.{Action, BodyParsers, Controller}
 
 import scala.collection.mutable
 
-
 class ProductController extends Controller {
 
   //0L -> L para o compilador entender que é Long
@@ -17,7 +16,7 @@ class ProductController extends Controller {
   def addProduct = Action(BodyParsers.parse.json){ request =>
     request.body.validate[Product].fold(
       errors => {
-        BadRequest
+        BadRequest.withHeaders("Access-Control-Allow-Origin"->"*")
       },
       product => {
 
@@ -25,22 +24,21 @@ class ProductController extends Controller {
 
           val newProduct = new Product(Option(index), product.name, product.price, product.category)
           products += (index -> newProduct)
-          Created(Json.toJson(newProduct))
-
+          Created(Json.toJson(newProduct)).withHeaders("Access-Control-Allow-Origin"->"*")
       }
     )
   }
 
 
-  def listProduct() = Action{
-    Ok(Json.toJson(products))
-  }
+  /*def listProduct() = Action{
+    Ok(Json.toJson(products.to/Seq))
+  } */
 
 
   def getProduct(id: Long) = Action{
     if(products.isDefinedAt(id)){
       //o primeiro get pega do mapa, enquanto o segundo get é uma Option
-      Ok(Json.toJson(products.get(id).get))
+      Ok(Json.toJson(products.get(id).get)).withHeaders("Access-Control-Allow-Origin"->"*")
 
       /* Para entendermos melhor:
       val productOption = products.get(id)
@@ -48,8 +46,7 @@ class ProductController extends Controller {
       Ok(productOption.get)
       * */
     } else{
-      NotFound
+      NotFound.withHeaders("Access-Control-Allow-Origin"->"*")
     }
-
   }
 }
