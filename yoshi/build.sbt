@@ -1,14 +1,8 @@
 name := """yoshi"""
-
 version := "1.0-SNAPSHOT"
-
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
 scalaVersion := "2.11.7"
-
-
 libraryDependencies += filters
-
 //Declare dependencies
 
 //Of course, first we’ll need to declare some dependencies to use slick,
