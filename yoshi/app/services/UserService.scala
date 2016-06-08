@@ -1,17 +1,12 @@
 package services
 
-/**
-  * Created by USER on 08/06/2016.
-  */
 import models.{Users, User}
 import scala.concurrent.Future
 
 object UserService {
-
   def addUser(user: User): Future[String] = {
     Users.add(user)
   }
-
   def deleteUser(id: Long): Future[Int] = {
     Users.delete(id)
   }
